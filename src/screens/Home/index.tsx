@@ -15,7 +15,7 @@ export function Home() {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   return (
-    <Container>
+    <Container testID='welcome'>
       <Title>About me</Title>
       <Menu
         type={type}
@@ -23,8 +23,10 @@ export function Home() {
       />
 
       <FlatList
+        testID='flatlist-skills'
         data={[]}
         keyExtractor={item => item}
+        keyboardShouldPersistTaps='never'
         renderItem={({ item }) => (
           <Skill
             data={item}
@@ -43,12 +45,14 @@ export function Home() {
           <FormTitle>New</FormTitle>
 
           <Input
+            testID='input-new'
             placeholder="New skill..."
             onChangeText={setName}
             value={name}
           />
 
           <Button
+            testID='button-add'
             title="Save"
             onPress={() => { }}
           />
